@@ -2,13 +2,20 @@ package controller;
 
 import model.Person;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class PersonController {
 
-    public Person createPerson(Person p){
+    private static final AtomicInteger counter = new AtomicInteger();
+    private static List<Person> personList = new ArrayList<>();
 
-        return null;
+
+    public Person createPerson(Person p){
+        p.setId(counter.incrementAndGet());
+        return p;
     }
 
     public Person getPerson(int id){
