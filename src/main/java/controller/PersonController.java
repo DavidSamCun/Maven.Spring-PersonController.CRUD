@@ -16,28 +16,33 @@ public class PersonController {
     private static List<Person> personList = new ArrayList<>();
 
 
-    public Person createPerson(Person p){
+    public Person createPerson(Person p){           //Return person? Why?
         p.setId(counter.incrementAndGet());
+        personList.add(p);
         return p;
     }
 
     public Person getPerson(int id){
+        for(Person person : personList){
+            if(person.getId() == id){
+                return person;
+            }
+        }
 
         return null;
     }
 
     public List<Person> getPersonList(){
-
-        return null;
+        return personList;
     }
 
-    public Person updatePerson(Person p){
+    public Person updatePerson(Person p){       //Add options for this?
 
         return null;
     }
 
     public void deletePerson(int id){
-
-
+        Person person = getPerson(id);
+        personList.remove(person);
     }
 }
