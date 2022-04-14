@@ -2,9 +2,21 @@ package model;
 
 public class Person {
 
-    String firstName;
-    String lastName;
     int id;
+    String lastName;
+    String firstName;
+
+
+
+    public Person(int id) {
+        this.id = id;
+    }
+
+    public Person(int id, String lastName, String firstName) {
+        this.id = id;
+        this.lastName = lastName;
+        this.firstName = firstName;
+    }
 
     public String getFirstName() {
         return firstName;
